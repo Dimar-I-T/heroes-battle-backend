@@ -1,4 +1,4 @@
-import { Item } from "src/items/items.entity";
+import { Item } from "../items/items.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'player_items' })

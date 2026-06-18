@@ -1,7 +1,7 @@
 import { Controller, UseGuards, Request, Body, Post, Get, Delete, Param, ParseUUIDPipe } from '@nestjs/common';
 import { PlayerItemsService } from './player-items.service';
-import { ResponseMessage } from 'src/common/decorators/response.message.decorator';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { ResponseMessage } from '../common/decorators/response.message.decorator';
+import { AuthGuard } from '../auth/auth.guard';
 import { BuyItemDto } from './dto/buy-item.dto';
 
 @Controller('player-items')

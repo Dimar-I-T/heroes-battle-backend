@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { PlayersService } from 'src/players/player.service';
+import { PlayersService } from '../players/player.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { Player } from 'src/players/player.entity';
-import { CreatePlayerDto } from 'src/players/dto/create-player.dto';
+import { Player } from '../players/player.entity';
+import { CreatePlayerDto } from '../players/dto/create-player.dto';
 import { NotFoundError } from 'rxjs';
 
 @Injectable()

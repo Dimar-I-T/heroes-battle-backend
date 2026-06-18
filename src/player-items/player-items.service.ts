@@ -2,8 +2,8 @@ import { Injectable, NotFoundException, UnprocessableEntityException } from '@ne
 import { InjectRepository } from '@nestjs/typeorm';
 import { Player_Item } from './player-items.entity';
 import { DataSource, Repository } from 'typeorm';
-import { Player } from 'src/players/player.entity';
-import { ItemsService } from 'src/items/items.service';
+import { Player } from '../players/player.entity';
+import { ItemsService } from '../items/items.service';
 
 @Injectable()
 export class PlayerItemsService {

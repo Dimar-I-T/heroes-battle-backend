@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../../heroes-battle-backend/src/app.module';
 
 describe('JWT Token API (e2e)', () => {
   let app: INestApplication;
@@ -49,7 +49,7 @@ describe('JWT Token API (e2e)', () => {
       expect(response.body.message).toMatch(/unauthorized/i);
     });
 
-    it('3. [GET /api/player-heroes/me] - Harus diterima jika menggunakan Token yang valid', async () => {
+    it('3. [GET /api/player-heroes/me] : Harus diterima jika menggunakan Token yang valid', async () => {
       const response = await request(app.getHttpServer())
         .get('/api/player-heroes/me')
         .set('Authorization', `Bearer ${accessToken}`) 

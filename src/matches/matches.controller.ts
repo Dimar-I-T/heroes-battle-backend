@@ -1,7 +1,7 @@
 import { Body, Controller, Post, UseGuards, Request, Get } from '@nestjs/common';
 import { MatchesService } from './matches.service';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { ResponseMessage } from 'src/common/decorators/response.message.decorator';
+import { AuthGuard } from '../auth/auth.guard';
+import { ResponseMessage } from '../common/decorators/response.message.decorator';
 import { MatchHeroDto } from './dto/match-hero.dto';
 
 @Controller('matches')

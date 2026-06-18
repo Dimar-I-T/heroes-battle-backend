@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MatchesController } from './matches.controller';
 import { MatchesService } from './matches.service';
-import { ItemsModule } from 'src/items/items.module';
-import { PlayerItemsModule } from 'src/player-items/player-items.module';
-import { HeroesModule } from 'src/heroes/heroes.module';
+import { ItemsModule } from '../items/items.module';
+import { PlayerItemsModule } from '../player-items/player-items.module';
+import { HeroesModule } from '../heroes/heroes.module';
 import { Match } from './matches.entity';
 
 @Module({

@@ -3,7 +3,7 @@ import { PlayerItemsController } from './player-items.controller';
 import { PlayerItemsService } from './player-items.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Player_Item } from './player-items.entity';
-import { ItemsModule } from 'src/items/items.module';
+import { ItemsModule } from '../items/items.module';
 
 @Module({
   imports: [

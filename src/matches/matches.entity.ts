@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import type { resultMatchType } from "./types";
-import { Hero } from "src/heroes/heroes.entity";
+import { Hero } from "../heroes/heroes.entity";
 
 @Entity({ name: 'matches' })
 export class Match {

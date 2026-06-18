@@ -1,8 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { HeroesService } from './heroes.service';
-import { ResponseMessage } from 'src/common/decorators/response.message.decorator';
+import { ResponseMessage } from '../common/decorators/response.message.decorator';
 import type { heroSortType } from './types';
-import type { sortOptionType } from 'src/players/types';
+import type { sortOptionType } from '../players/types';
 
 @Controller('heroes')
 export class HeroesController {

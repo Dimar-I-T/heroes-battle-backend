@@ -3,7 +3,7 @@ import { ILike, Repository } from 'typeorm';
 import { Hero } from './heroes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { heroSortType } from './types';
-import { sortOptionType } from 'src/players/types';
+import { sortOptionType } from '../players/types';
 
 @Injectable()
 export class HeroesService {

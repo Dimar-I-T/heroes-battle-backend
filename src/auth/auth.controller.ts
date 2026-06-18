@@ -1,9 +1,9 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, UseFilters, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { CreatePlayerDto } from 'src/players/dto/create-player.dto';
-import { ResponseMessage } from 'src/common/decorators/response.message.decorator';
-import { CustomResponseFilter } from 'src/common/filters/custom-response.filter';
+import { CreatePlayerDto } from '../players/dto/create-player.dto';
+import { ResponseMessage } from '../common/decorators/response.message.decorator';
+import { CustomResponseFilter } from '../common/filters/custom-response.filter';
 
 @Controller('auth')
 export class AuthController {

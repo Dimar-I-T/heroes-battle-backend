@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, ParseUUIDPipe, Query, UseGuards, Request, Put } from '@nestjs/common';
 import { PlayersService } from './player.service';
 import type { sortType, sortOptionType } from './types';
-import { ResponseMessage } from 'src/common/decorators/response.message.decorator';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { ResponseMessage } from '../common/decorators/response.message.decorator';
+import { AuthGuard } from '../auth/auth.guard';
 import { UpdatePlayerDto } from './dto/update-player.dto';
 
 @Controller('players')

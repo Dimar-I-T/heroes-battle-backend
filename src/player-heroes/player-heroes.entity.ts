@@ -1,4 +1,4 @@
-import { Hero } from "src/heroes/heroes.entity";
+import { Hero } from "../heroes/heroes.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'player_heroes' })

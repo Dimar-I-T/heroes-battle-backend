@@ -3,7 +3,7 @@ import { PlayerHeroesController } from './player-heroes.controller';
 import { PlayerHeroesService } from './player-heroes.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Player_Hero } from './player-heroes.entity';
-import { HeroesModule } from 'src/heroes/heroes.module';
+import { HeroesModule } from '../heroes/heroes.module';
 
 @Module({
   imports:[

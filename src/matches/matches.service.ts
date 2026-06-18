@@ -2,13 +2,13 @@ import { Injectable, NotFoundException, UnprocessableEntityException } from '@ne
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource } from 'typeorm';
 import { Match } from './matches.entity';
-import { HeroesService } from 'src/heroes/heroes.service';
-import { Player } from 'src/players/player.entity';
-import { Player_Hero } from 'src/player-heroes/player-heroes.entity';
-import { ItemsService } from 'src/items/items.service';
-import { PlayerItemsService } from 'src/player-items/player-items.service';
-import { Item } from 'src/items/items.entity';
-import { Player_Item } from 'src/player-items/player-items.entity';
+import { HeroesService } from '../heroes/heroes.service';
+import { Player } from '../players/player.entity';
+import { Player_Hero } from '../player-heroes/player-heroes.entity';
+import { ItemsService } from '../items/items.service';
+import { PlayerItemsService } from '../player-items/player-items.service';
+import { Item } from '../items/items.entity';
+import { Player_Item } from '../player-items/player-items.entity';
 import { resultMatchType } from './types';
 
 const rPS: string[] = ['rock', 'paper', 'scissors'];
