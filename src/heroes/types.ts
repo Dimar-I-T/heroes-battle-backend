@@ -1,0 +1,1 @@
+export type heroSortType = 'health' | 'damage' | 'cost';

@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Param, ParseUUIDPipe, Query, UseGuards, Request, Put } from '@nestjs/common';
-
 import { PlayersService } from './player.service';
 import type { sortType, sortOptionType } from './types';
 import { ResponseMessage } from 'src/common/decorators/response.message.decorator';

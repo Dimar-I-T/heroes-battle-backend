@@ -9,6 +9,10 @@ import { MatchModule } from './matches/match.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
+import { HeroesModule } from './heroes/heroes.module';
+import { ItemsModule } from './items/items.module';
+import { PlayerHeroesModule } from './player-heroes/player-heroes.module';
+import { PlayerItemsModule } from './player-items/player-items.module';
 
 @Module({
   imports: [
@@ -32,7 +36,11 @@ import { ResponseInterceptor } from './common/interceptors/response.interceptor'
 
     PlayersModule,
     MatchModule,
-    AuthModule
+    AuthModule,
+    HeroesModule,
+    ItemsModule,
+    PlayerHeroesModule,
+    PlayerItemsModule,
   ],
   controllers: [AppController],
   providers: [

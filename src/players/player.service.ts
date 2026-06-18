@@ -96,13 +96,30 @@ export class PlayersService {
             throw new NotFoundException(`User #${player_id} not found`);
         }
 
-        if (dto.username){
+        if (dto.username) {
             player.username = dto.username;
         }
-        
+
         await this.playerRepository.save(player);
-        const {hashed_password, ...playerToSend} = player;
+        const { hashed_password, ...playerToSend } = player;
         return playerToSend;
+    }
+
+    async updateCoins(player_id: string, coins: number): Promise<void> {
+        if (coins < 0) {
+            throw new Error('Coins cannot be negative')
+        }
+        
+        const player = await this.playerRepository.findOne({
+            where: { player_id }
+        });
+
+        if (!player) {
+            throw new NotFoundException(`User #${player_id} not found`);
+        }
+
+        player.coins = coins;
+        await this.playerRepository.save(player);
     }
 
     async remove(player_id: string): Promise<void> {
@@ -132,7 +149,7 @@ export class PlayersService {
     private getPlayers(players: Player[]): Omit<Player, 'hashed_password'>[] {
         let result: Omit<Player, 'hashed_password'>[] = []
         players.forEach((player: Player) => {
-            const {hashed_password, ...playerToSend} = player;
+            const { hashed_password, ...playerToSend } = player;
             result.push(playerToSend);
         })
 
