@@ -1,0 +1,1 @@
+export type resultMatchType = 'unfinished' | 'win' | 'lose'; 

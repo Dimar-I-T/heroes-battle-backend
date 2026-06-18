@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { PlayersModule } from './players/player.module';
-import { MatchModule } from './matches/match.module';
+import { MatchesModule } from './matches/matches.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
@@ -35,7 +35,7 @@ import { PlayerItemsModule } from './player-items/player-items.module';
     }),
 
     PlayersModule,
-    MatchModule,
+    MatchesModule,
     AuthModule,
     HeroesModule,
     ItemsModule,

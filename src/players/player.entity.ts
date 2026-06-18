@@ -20,9 +20,9 @@ export class Player {
     @Column({ default: 100 })
     coins!: number;
 
-    @CreateDateColumn()
+    @CreateDateColumn({type: 'timestamp'})
     created_at!: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({type: 'timestamp'})
     updated_at!: Date;
 }

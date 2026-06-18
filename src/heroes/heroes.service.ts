@@ -44,4 +44,11 @@ export class HeroesService {
 
         return hero;
     }
+
+    async getRandomHero(): Promise<Hero> {
+        const allHero = await this.heroRepository.find();
+        const n = allHero.length;
+        const randomIndex = Math.floor(n * Math.random());
+        return allHero[randomIndex];
+    }
 }

@@ -11,6 +11,7 @@ import { ItemsModule } from 'src/items/items.module';
     ItemsModule
   ],
   controllers: [PlayerItemsController],
-  providers: [PlayerItemsService]
+  providers: [PlayerItemsService],
+  exports: [PlayerItemsService]
 })
 export class PlayerItemsModule { }
