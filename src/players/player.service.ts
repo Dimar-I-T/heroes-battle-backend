@@ -1,8 +1,10 @@
 import { ConflictException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { Player } from './player.entity';
 import { CreatePlayerDto } from './dto/create-player.dto';
+import { sortOptionType } from './types';
+import { UpdatePlayerDto } from './dto/update-player.dto';
 
 @Injectable()
 export class PlayersService {
@@ -26,8 +28,35 @@ export class PlayersService {
         }
     }
 
-    async findAll(): Promise<Player[]> {
-        return this.playerRepository.find();
+    async findAll(search: string, limit: number, sort: string, sortOption: sortOptionType): Promise<Omit<Player, 'hashed_password'>[]> {
+        let searchFind: any;
+        let orderFind: any;
+        if (search) {
+            searchFind = {
+                username: ILike(`%${search}%`)
+            }
+        }
+
+        if (sort) {
+            if (sortOption) {
+                orderFind = {
+                    [sort]: sortOption
+                }
+            }
+        } else {
+            orderFind = {
+                player_id: "ASC"
+            }
+        }
+
+        const players = await this.playerRepository.find({
+            where: searchFind,
+            order: orderFind,
+            take: limit
+        });
+
+        const result: Omit<Player, 'hashed_password'>[] = this.getPlayers(players);
+        return result;
     }
 
     async findOne(username: string): Promise<Player> {
@@ -49,10 +78,31 @@ export class PlayersService {
         return playerToSend;
     }
 
-    async update(player_id: string, dto: Partial<CreatePlayerDto>): Promise<Player> {
-        const user = await this.findOne(player_id);
-        Object.assign(user, dto);
-        return this.playerRepository.save(user);
+    async getLeaderboard(limit: number): Promise<Omit<Player, 'hashed_password'>[]> {
+        const players = await this.playerRepository.find({
+            order: {
+                wins: 'DESC'
+            },
+            take: limit
+        });
+
+        const result = this.getPlayers(players);
+        return result;
+    }
+
+    async update(player_id: string, dto: Partial<UpdatePlayerDto>): Promise<Omit<Player, 'hashed_password'>> {
+        const player = await this.playerRepository.findOne({ where: { player_id } });
+        if (!player) {
+            throw new NotFoundException(`User #${player_id} not found`);
+        }
+
+        if (dto.username){
+            player.username = dto.username;
+        }
+        
+        await this.playerRepository.save(player);
+        const {hashed_password, ...playerToSend} = player;
+        return playerToSend;
     }
 
     async remove(player_id: string): Promise<void> {
@@ -77,5 +127,15 @@ export class PlayersService {
             'coins',
             50
         );
+    }
+
+    private getPlayers(players: Player[]): Omit<Player, 'hashed_password'>[] {
+        let result: Omit<Player, 'hashed_password'>[] = []
+        players.forEach((player: Player) => {
+            const {hashed_password, ...playerToSend} = player;
+            result.push(playerToSend);
+        })
+
+        return result;
     }
 }
