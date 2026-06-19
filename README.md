@@ -48,11 +48,11 @@ Saya menghindari penggunaan `try-catch` yang berlebihan di level Controller/Serv
 
 ## Heroes Battle API Documentation
 
-### Authentication
+### 1. Authentication
 
 Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 
-#### Register Account
+#### 1.1. Register Account
 
 **Method dan Endpoint:** `POST /api/auth/register`
 
@@ -74,7 +74,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ![image](https://hackmd.io/_uploads/r1_5ib-MGe.png)
 
 
-#### Login
+#### 1.2. Login
 
 **Method dan Endpoint:** `POST /api/auth/login`
 
@@ -94,7 +94,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 
 ![image](https://hackmd.io/_uploads/S1WnoZWMze.png)
 
-#### Profile
+#### 1.3. Profile
 **Method dan Endpoint:** `GET /api/auth/login`
 **Operasi Backend:**
 - Mengembalikan data lengkap player berdasarkan player_id pada request yang disimpan dari jwt
@@ -105,9 +105,9 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ```
 ![image](https://hackmd.io/_uploads/rJCq6--GGg.png)
 
-### Players (User Management)
+### 2. Players (User Management)
 
-#### Get All Players
+#### 2.1. Get All Players
 
 **Method dan Endpoint:** `GET /api/players`
 
@@ -127,7 +127,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ![image](https://hackmd.io/_uploads/rywYdGZMfe.png)
 
 
-#### Get Player by ID
+#### 2.2. Get Player by ID
 
 **Method dan Endpoint:** `GET /api/players/:id`
 
@@ -142,7 +142,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 
 ![image](https://hackmd.io/_uploads/B1eaBf-MGe.png)
 
-#### Get Leaderboard
+#### 2.3. Get Leaderboard
 
 **Method dan Endpoint:** `GET /api/players/leaderboard`
 
@@ -158,7 +158,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ![image](https://hackmd.io/_uploads/SkMFqfZMzx.png)
 
 
-#### Update My Profile
+#### 2.4. Update My Profile
 
 **Method dan Endpoint:** `PUT /api/players/me` (Requires JWT)
 
@@ -174,11 +174,11 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 
 ![image](https://hackmd.io/_uploads/BJQ0pzbGGl.png)
 
-### Master Data (Katalog)
+### 3. Master Data (Katalog)
 
 Semua endpoint di bawah ini bersifat publik.
 
-#### Get Heroes Catalog
+#### 3.1. Get Heroes Catalog
 
 **Method dan Endpoint:** `GET /api/heroes`
 
@@ -194,7 +194,7 @@ Semua endpoint di bawah ini bersifat publik.
 ![image](https://hackmd.io/_uploads/BJcaDEWfGl.png)
 
 
-#### Get Items Catalog
+#### 3.2. Get Items Catalog
 
 **Method dan Endpoint:** `GET /api/items`
 
@@ -209,11 +209,11 @@ Semua endpoint di bawah ini bersifat publik.
 
 ![image](https://hackmd.io/_uploads/HkWxiVZzzx.png)
 
-### Inventory System
+### 4. Inventory System
 
 Semua endpoint di bawah ini wajib melampirkan JWT.
 
-#### Get My Heroes
+#### 4.1. Get My Heroes
 
 **Method dan Endpoint:** `GET /api/player-heroes/me`
 
@@ -227,7 +227,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/HkhQe8ZGGl.png)
 
 
-#### Buy Hero
+#### 4.2. Buy Hero
 
 **Method dan Endpoint:** `POST /api/player-heroes/buy`
 
@@ -249,7 +249,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/r1mK_SbMze.png)
 
 
-#### Sell Hero
+#### 4.3. Sell Hero
 
 **Method dan Endpoint:** `DELETE /api/player-heroes/:id`
 
@@ -268,7 +268,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/Sy4kULWfzx.png)
 
 
-#### Get My Items
+#### 4.4. Get My Items
 
 **Method dan Endpoint:** `GET /api/player-items/me`
 
@@ -282,7 +282,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/ByOcsUWfMe.png)
 
 
-#### Buy Item
+#### 4.5. Buy Item
 
 **Method dan Endpoint:** `POST /api/player-items/buy`
 
@@ -300,7 +300,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/BJEcs8ZMfx.png)
 
 
-#### Sell Item
+#### 4.6. Sell Item
 
 **Method dan Endpoint:** `DELETE /api/player-items/:id`
 
@@ -316,11 +316,11 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/SkQJ2IWffg.png)
 
 
-### Match danBattle System
+### 5. Match danBattle System
 
 Semua endpoint di bawah ini wajib melampirkan JWT. 
 
-#### Get My Matches
+#### 5.1. Get My Matches
 
 **Method dan Endpoint:** `GET /api/matches/me`
 
@@ -334,7 +334,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 ![image](https://hackmd.io/_uploads/HyTiz9bzMg.png)
 
 
-#### Start Match (Auto Battle System)
+#### 5.2. Start Match (Auto Battle System)
 
 **Method dan Endpoint:** `POST /api/matches/start`
 

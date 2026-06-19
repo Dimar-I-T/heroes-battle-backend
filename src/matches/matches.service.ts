@@ -72,37 +72,40 @@ export class MatchesService {
             simulationMessage += `\nYour hero is ${heroPlayer.name}`;
             simulationMessage += `\nHealth: ${heroPlayer.health}`;
             simulationMessage += `\nDamage: ${heroPlayer.damage}`;
-            const items_id = await this.playerItemService.getMyItems(player_id);
+            const items = await this.playerItemService.getMyItems(player_id);
 
-            const items: Item[] = []
-            simulationMessage += `\nYour items are:`
-            items_id.forEach(async (player_item: Player_Item) => {
-                const itemToPush = await this.itemService.findItemById(player_item.item_id);
-                if (itemToPush) {
-                    items.push(itemToPush);
-                }
-                simulationMessage += `\n- ${itemToPush.name} (plus_health: ${itemToPush.plus_health}, plus_damage: ${itemToPush.plus_damage})`;
-            });
+            let n = items.length;
+            const nInit = items.length;
+
+            if (n > 0) {
+                simulationMessage += `\nYour items are:`
+                items.forEach((item: Player_Item) => {
+                    simulationMessage += `\n- ${item.item.name} (plus_health: ${item.item.plus_health}, plus_damage: ${item.item.plus_damage})`;
+                })
+            } else {
+                simulationMessage += `\nYou don\'t have any items`;
+            }
 
             let enemy = await this.heroService.getRandomHero();
             simulationMessage += `\n\nYour enemy is ${enemy.name}`;
             simulationMessage += `\nHealth: ${enemy.health}`;
             simulationMessage += `\nDamage: ${enemy.damage}`;
 
+            const prize = enemy.health;
             let win: boolean = true;
             let k = 1;
             while (heroPlayer.health > 0 && enemy.health > 0) {
                 simulationMessage += `\n\nROUND ${k}`;
-                const n = items.length
                 let selectedItem: any;
                 let isSelectingItem: any;
                 if (n > 0) {
                     simulationMessage += `\nYou wanna use an item? `
                     isSelectingItem = Math.floor(1 * Math.random());
                     if (isSelectingItem === 1) {
+                        n = items.length;
                         simulationMessage += `\nYES, selecting random item`
                         const randomIndex = Math.floor(n * Math.random());
-                        selectedItem = items[randomIndex];
+                        selectedItem = items[randomIndex].item;
                         items.splice(randomIndex, 1);
                         heroPlayer.damage += selectedItem.plus_damage;
                         heroPlayer.health += selectedItem.plus_health;
@@ -112,7 +115,9 @@ export class MatchesService {
                         simulationMessage += `\nNO, skipping item`;
                     }
                 } else {
-                    simulationMessage += `\nYou don\'t have any more items`;
+                    if (nInit > 0) {
+                        simulationMessage += `\nYou don\'t have any more items`;
+                    }
                 }
 
                 simulationMessage += `\n\nRock, Paper, Scissors!`;
@@ -124,13 +129,13 @@ export class MatchesService {
                 simulationMessage += `\nEnemy\'s choice ${rpsEnemy}`;
 
                 if (resultCurr === 'win') {
-                    simulationMessage += `\nYou WIN round ${k}! attacking enemy by ${heroPlayer.damage} damage`;
+                    simulationMessage += `\nYou WIN round ${k}! attacking enemy with ${heroPlayer.damage} damage`;
                     enemy.health -= heroPlayer.damage;
                     if (isSelectingItem === 1) {
                         heroPlayer.health -= selectedItem.plus_health;
                     }
                 } else if (resultCurr === 'lose') {
-                    simulationMessage += `\nYou LOSE round ${k}! getting damaged by enemy by ${enemy.damage} damage`;
+                    simulationMessage += `\nYou LOSE round ${k}! enemy attacking you with ${enemy.damage} damage`;
                     heroPlayer.health -= enemy.damage;
                 }
 
@@ -165,7 +170,7 @@ export class MatchesService {
             let result: resultMatchType = 'win';
             if (win) {
                 player.wins++;
-                player.coins += enemy.health;
+                player.coins += prize;
             } else {
                 player.losses++;
                 result = 'lose';
