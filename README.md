@@ -71,6 +71,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 { "success": true, "message": "...", "data": { "access_token": "..." } }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/r1_5ib-MGe.png)
 
 
@@ -92,6 +93,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 { "success": true, "message": "...", "data": { "access_token": "..." } }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/S1WnoZWMze.png)
 
 #### 1.3. Profile
@@ -103,6 +105,8 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ```json
 { "success": true, "message": "...", "data": { "..." } }
 ```
+
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/rJCq6--GGg.png)
 
 ### 2. Players (User Management)
@@ -122,9 +126,15 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 ```json
 { "success": true, "message": "...", "data": [...] }
 ```
+
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/BJ2DOfZzze.png)
 
 ![image](https://hackmd.io/_uploads/rywYdGZMfe.png)
+
+##### Hasil neon
+<img width="1282" height="552" alt="image" src="https://github.com/user-attachments/assets/cc6bd63b-9d6e-4a51-9aae-9fbdde70800d" />
+
 
 
 #### 2.2. Get Player by ID
@@ -140,6 +150,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/B1eaBf-MGe.png)
 
 #### 2.3. Get Leaderboard
@@ -155,6 +166,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/SkMFqfZMzx.png)
 
 
@@ -172,6 +184,7 @@ Semua endpoint di bawah ini bersifat publik (tidak memerlukan token).
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/BJQ0pzbGGl.png)
 
 ### 3. Master Data (Katalog)
@@ -191,6 +204,7 @@ Semua endpoint di bawah ini bersifat publik.
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/BJcaDEWfGl.png)
 
 
@@ -207,6 +221,7 @@ Semua endpoint di bawah ini bersifat publik.
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/HkWxiVZzzx.png)
 
 ### 4. Inventory System
@@ -224,6 +239,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/HkhQe8ZGGl.png)
 
 
@@ -244,6 +260,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/SJNu_H-Mfl.png)
 
 ![image](https://hackmd.io/_uploads/r1mK_SbMze.png)
@@ -265,6 +282,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/Sy4kULWfzx.png)
 
 
@@ -279,6 +297,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/ByOcsUWfMe.png)
 
 
@@ -295,6 +314,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/BJ1wo8Zzfg.png)
 
 ![image](https://hackmd.io/_uploads/BJEcs8ZMfx.png)
@@ -313,10 +333,11 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": {...} }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/SkQJ2IWffg.png)
 
 
-### 5. Match danBattle System
+### 5. Match dan Battle System
 
 Semua endpoint di bawah ini wajib melampirkan JWT. 
 
@@ -331,6 +352,7 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": [...] }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/HyTiz9bzMg.png)
 
 
@@ -354,8 +376,11 @@ Semua endpoint di bawah ini wajib melampirkan JWT.
 { "success": true, "message": "...", "data": { "match_id": 1, "enemy": {...} } }
 ```
 
+##### Hasil postman
 ![image](https://hackmd.io/_uploads/rJChz9Wfzl.png)
 
+##### Hasil Neon
+<img width="1311" height="687" alt="image" src="https://github.com/user-attachments/assets/09a4b3cf-ff27-4d7c-a4c5-b2cb333ad525" />
 
 ## Project setup
 
