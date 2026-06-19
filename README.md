@@ -17,7 +17,37 @@ https://heroes-battle-backend.vercel.app
 Proyek ini dibuat menggunakan **Layered Architecture (Controller-Service Pattern)** yang dikombinasikan dengan **Aspect Oriented Programming** melalui fitur-fitur bawaan NestJS.
 
 Alur Request Lifecycle dalam backend ini diatur secara ketat dengan urutan sebagai berikut:
-**`Client Request` -> `Auth Guard` -> `Controller` -> `Service` -> `Response Interceptor` / `Exception Filter` -> `Client Response`**
+**`Client Request` -> `Auth Guard` -> `DTO Validation` -> `Controller` -> `Service` -> `Response Interceptor` / `Exception Filter` -> `Client Response`**
+
+### Struktur Folder
+```
+src/
+├── auth/
+│   ├── auth.controller.ts
+│   ├── auth.service.ts
+│   ├── auth.guard.ts
+│   ├── auth.module.ts
+│   └── ...
+├── players/
+├── players-heroes/
+├── players-items/ 
+├── heroes/         
+├── items/
+│   ├── items.controller.ts
+│   ├── items.service.ts
+│   ├── items.entity.ts
+│   ├── items.module.ts
+│   └── ...
+├── matches/        
+└── common/
+    ├── decorators/
+    ├── filters/
+    └── interceptors/
+test/
+├── app.e2e-spec.ts
+└── jest-e2e.json
+...
+```
 
 ### Alasan Menggunakan Pattern Ini:
 
@@ -34,6 +64,7 @@ Pengecekan JWT Token tidak dilakukan di dalam blok kode controller, melainkan di
 
 **4. Graceful Error Handling (Penanganan Error yang Elegan)**
 Saya menghindari penggunaan `try-catch` yang berlebihan di level Controller/Service. Sebagai gantinya, saya menggunakan **Global Exception Filter**. Jika terjadi error di bagian mana pun dalam sistem, Filter ini akan otomatis menangkapnya dan memformat error menjadi struktur JSON yang informatif dan aman bagi client, lengkap dengan timestamp dan path:
+
 ```json
 {
   "success": false,
@@ -45,6 +76,10 @@ Saya menghindari penggunaan `try-catch` yang berlebihan di level Controller/Serv
   "path": "/api/matches/start"
 }
 ```
+
+**5. Validasi Input Otomatis (DTO & Class Validator)**
+Setiap data yang masuk dari request body divalidasi menggunakan **Data Transfer Object (DTO)** yang dikombinasikan dengan `class-validator`. Validasi ini berjalan otomatis di level pipe sebelum data sempat menyentuh Controller maupun Service, sehingga data yang salah format akan langsung ditolak dengan response error yang jelas tanpa perlu menulis pengecekan manual di setiap endpoint.
+
 
 ## Heroes Battle API Documentation
 
