@@ -9,6 +9,9 @@ https://heroes-battle-backend.vercel.app
 ![TypeORM](https://img.shields.io/badge/TypeORM-FE0803?style=for-the-badge&logo=typeorm&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
+## ERD Diagram
+<img width="894" height="685" alt="Untitled (8)" src="https://github.com/user-attachments/assets/e7e1797a-b87c-4fdf-aff5-65d507179c81" />
+
 ## Architecture dan Design Patterns
 
 Proyek ini dibuat menggunakan **Layered Architecture (Controller-Service Pattern)** yang dikombinasikan dengan **Aspect Oriented Programming** melalui fitur-fitur bawaan NestJS.
@@ -42,9 +45,6 @@ Saya menghindari penggunaan `try-catch` yang berlebihan di level Controller/Serv
   "path": "/api/matches/start"
 }
 ```
-
-## ERD Diagram
-<img width="894" height="685" alt="Untitled (8)" src="https://github.com/user-attachments/assets/e7e1797a-b87c-4fdf-aff5-65d507179c81" />
 
 ## Heroes Battle API Documentation
 
